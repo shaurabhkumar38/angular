@@ -1,0 +1,111 @@
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="addData()">Add</button>
+<div class="col-md-12 mb-4" ng-controller="categoryPanel" ng-init="fetchData()">
+<table class="table table-bordered">
+<tr>
+<td>category id</td>	
+<td>category name</td>
+<td>Images</td>
+<td>Status</td>
+<td>Event</td>
+</tr>
+
+<tr ng-repeat="name in namesData">
+<td>{{name.id}}</td>
+<td>{{name.name}}</td>
+<td><img ng-src='{{name.image}}' style="max-height:60px;"/></td>
+<td>{{name.status}}</td>
+<td><button class="btn btn-info" ng-click="fetchSingledata(name.id)" data-toggle="modal" data-target="#editModal" >Edit</button>
+	<button class="btn btn-danger">Delete</button>
+
+</td>
+</tr>
+</table>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Insert Data</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+<div class="col-md-12">
+	<form method="post" enctype="multipart/form-data">
+ <div class="form-group">
+<input type="text" name="categoryName" class="form-control" ng-model="categoryName">
+</div>
+<div class="form-group">
+<input type="file" file-input="files" name="file"  ng-model="image">
+</div>
+<div class="form-group">
+<button class="btn btn-primary" type="submit" ng-click="addCategory()">Add Data</button>
+</div>
+</form>
+</div>
+
+
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        	<input type="hidden" name="hidden_id">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="modal" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Insert Data</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+<div class="col-md-12">
+	<form method="post" enctype="multipart/form-data">
+ <div class="form-group">
+<input type="text" name="categoryName" class="form-control" ng-model="categoryName">
+</div>
+<div class="form-group">
+<input type="file" file-input="files" name="file">
+</div>
+<div class="form-group">
+<button class="btn btn-primary" type="submit" ng-click="addCategory()">Add Data</button>
+</div>
+</form>
+</div>
+
+
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        	<input type="hidden" name="hidden_id">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+  
