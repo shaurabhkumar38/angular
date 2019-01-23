@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ajax Example</title>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#sub").click(function(){
+$.post("test.php", function(data){
+$('#result').html(data);
+});
+
+
+
+
+});
+});
+</script>
+<style>
+#email_frm{
+	width:300px;
+	border:solid 1px #ccc;
+	background:#f1f1f1;
+	padding:10px;
+}
+#result{border:solid red; width:300px;}
+</style>
+</head>
+<body>
+<div id="email_frm">
+<h2>Ajax Example</h2>
+<input type="text" name="email" id="email">
+<input type="submit" name="sub" id="sub" value="Submit">
+</div><br>
+<div id="result"></div>
+</body>
+
+</html>

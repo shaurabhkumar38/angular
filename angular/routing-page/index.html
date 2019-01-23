@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Routing</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="../angular.min.js"></script>
+<script src="../angular-route.min.js"></script>
+<script src="controller.js"></script>
+</head>
+<body ng-app="mainApp">
+<div class="menu">
+<ul>
+<li><a href="#/">Home</a></li>
+<li><a href="#/page">Page</a></li>
+<li><a href="#/page2">Page2</a></li>
+</ul>
+</div>
+<div class="clear"></div>
+<div ng-view class="box"></div>
+</body>
+</html>

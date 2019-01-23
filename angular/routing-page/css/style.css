@@ -1,0 +1,8 @@
+*{margin:0px;padding:0px;box-sizing:border-box;}
+body{font-family:arial;}
+.clear{clear:both !important;}
+.box{float:left; width:100%; padding:20px;}
+ul{list-style:none;}
+li{float:left;}
+li a{float:left; text-decoration:none; text-align:center; padding:5px 20px; color:#fff; line-height:30px;}
+.menu{float:left; width:100%; background:#000;}

@@ -1,0 +1,29 @@
+<html data-ng-app="myModule">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script type="text/javascript">
+var myModule = angular.module('myModule', []);
+myModule.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
+        when('/test1', {templateUrl: 'test1.html', controller: Test1Ctrl}).
+        when('/test2', {templateUrl: 'test2.html', controller: Test2Ctrl}).
+        otherwise({redirectTo: '/test1'});
+}]);
+
+function Test1Ctrl($scope, $http) { $scope.header = "Test 1"; 
+                                  /* ^ how can I put this in title and h1 */ }
+function Test2Ctrl($scope, $http) { $scope.header = "Test 2"; }
+</script>
+<title>{{header}}</title>
+</head>
+<body>
+<h1><!-- should changed when ng-view changes --></h1>
+<a href="#/test1">test1</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#/test2">test2</a>
+<br/>
+<br/>
+
+<div data-ng-view></div>
+
+</body>
+</html>

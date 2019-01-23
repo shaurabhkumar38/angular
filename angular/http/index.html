@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="../angular.min.js"></script>
+<script src="controller.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="mycntr">
+<ul>
+<li ng-repeat="person in persons">
+{{person.Name + ' : ' + person.Age}}
+</li>
+</ul>
+</body>
+</html>

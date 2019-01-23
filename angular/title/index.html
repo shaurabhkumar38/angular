@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="plunker" ng-controller="MainCtrl">
+<head>
+  <meta charset="utf-8">
+  <title>{{ Page.title() }}</title>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css">
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+  <script src="https://raw.github.com/twitter/bootstrap/master/docs/assets/js/bootstrap.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+  <script type="text/javascript">
+  
+  var app = angular.module('plunker', []);
+
+app.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.
+    when('/test1', {templateUrl: 'test1.html', controller: Test1Ctrl}).
+    when('/test2', {templateUrl: 'test2.html', controller: Test2Ctrl}).
+    otherwise({redirectTo: 'test1'});
+  //$locationProvider.html5Mode( true );
+}]);
+
+app.factory('Page', function(){
+  var title = 'default';
+  return {
+    title: function() { return title; },
+    setTitle: function(newTitle) { title = newTitle; }
+  };
+});
+
+function MainCtrl($scope, Page) {
+  $scope.Page = Page;
+}
+function Test1Ctrl($scope, Page) {
+  Page.setTitle('title1');
+}
+function Test2Ctrl($scope, Page) {
+  Page.setTitle('title2');
+}
+
+  </script>
+</head>
+<body>
+<h1>{{ Page.title() }}</h1>
+<ul>
+  <li><a href="#/test1">test1</a>
+  <li><a href="#/test2">test2</a>
+</ul>
+  	<div ng-view></div>
+	</body>
+</html>

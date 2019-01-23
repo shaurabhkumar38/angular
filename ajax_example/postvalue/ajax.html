@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$('#sub').click(function(){
+var email = ('#email').val();
+$.post("test.php",{email:email} ,function(data){
+$('#result').html(data)
+});
+});
+})
+</script>
+</head>
+<body>
+<input type="text" name="email" id="email">
+<input type="submit" name="sub" id="sub" value="submit">
+<div id="result"></div>
+</body>
+</html>
